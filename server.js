@@ -1,0 +1,28 @@
+const express = require('express');
+const mongoose = require('mongoose');
+
+const routes =require('./Routes')
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+
+require('dotenv').config()
+
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch(err => {
+    console.error('Error connecting to MongoDB:', err);
+  });
+
+app.use(express.json());
+app.use(routes)
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the PC Building API');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
