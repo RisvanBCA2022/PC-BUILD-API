@@ -1,18 +1,16 @@
 const mongoose = require('mongoose');
 
-
 const gpuSchema = new mongoose.Schema({
-    brand: { type: String, required: true },
-    model: { type: String, required: true },
-    imageUrl: { type: String, required: true },
+  name: { type: String},
+  price: { type: Number },
+  chipset: { type: String},
+  memory: { type: Number,},
+  core_clock: { type: Number},
+  boost_clock: { type: Number, },
+  color: { type: String },
+  length: { type: Number }
+});
 
-    memory: { type: Number, required: true },
-    coreClock: { type: Number, required: true },
-    boostClock: { type: Number, required: true },
-    TDP: { type: Number, required: true },
-    price: { type: Number, required: true },
-  });
+const GPU = mongoose.model('GPU', gpuSchema);
 
-  const GPU = mongoose.model('GPU', gpuSchema);
-
-  module.exports ={GPU}
+module.exports = GPU;

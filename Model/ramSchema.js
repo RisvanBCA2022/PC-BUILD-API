@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 
 const ramSchema = new mongoose.Schema({
-    brand: { type: String, required: true },
-    model: { type: String, required: true },
-    imageUrl: { type: String, required: true },
+  name: { type: String, },
+  price: { type: Number,},
+  speed: { type: [Number] },
+  modules: { type: [Number] }, 
+  price_per_gb: { type: Number }, 
+  color: { type: String },
+  first_word_latency: { type: Number },
+  cas_latency: { type: Number }
+});
 
-    capacity: { type: Number, required: true },
-    speed: { type: Number, required: true },
-    latency: { type: Number, required: true },
-    price: { type: Number, required: true },
-  });
+const RAM = mongoose.model('RAM', ramSchema);
 
-  const RAM = mongoose.model('RAM', ramSchema);
-module.exports={RAM}
+module.exports = RAM;

@@ -9,3 +9,15 @@ exports.getAllRAM = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+
+exports.insertManyRAM = async (req, res) => {
+    try {
+      const ramsData = req.body; 
+      const insertedRAMs = await RAM.insertMany(ramsData);
+      res.json({ message: 'RAMs inserted successfully', insertedRAMs });
+    } catch (error) {
+      console.error('Error inserting RAMs:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  };

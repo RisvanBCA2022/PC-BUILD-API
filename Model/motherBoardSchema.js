@@ -1,16 +1,15 @@
 const mongoose = require('mongoose');
 
 const motherboardSchema = new mongoose.Schema({
-    brand: { type: String, required: true },
-    model: { type: String, required: true },
-    imageUrl: { type: String, required: true },
+  name: { type: String,},
+  price: { type: Number,},
+  socket: { type: String,},
+  form_factor: { type: String, },
+  max_memory: { type: Number,  },
+  memory_slots: { type: Number, },
+  color: { type: String }
+});
 
-    socket: { type: String, required: true },
-    chipset: { type: String, required: true },
-    formFactor: { type: String, required: true },
-    price: { type: Number, required: true },
-  });
+const Motherboard = mongoose.model('Motherboard', motherboardSchema);
 
-  const Motherboard = mongoose.model('Motherboard', motherboardSchema);
-
-  module.exports = {Motherboard };
+module.exports = Motherboard;

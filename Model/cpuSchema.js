@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
 const cpuSchema = new mongoose.Schema({
-  brand: { type: String, required: true },
-  model: { type: String, required: true },
-  imageUrl: { type: String, required: true },
-  cores: { type: Number, required: true },
-  threads: { type: Number, required: true },
-  baseClock: { type: Number, required: true },
-  boostClock: { type: Number, required: true },
-  cache: { type: String },
-  TDP: { type: Number, required: true },
-  price: { type: Number, required: true },
+    model: { type: String,},
+    price: { type: Number },
+    core_count: { type: Number},
+    core_clock: { type: Number },
+    boost_clock: { type: Number},
+    tdp: { type: Number},
+    graphics: { type: String },
+    smt: { type: Boolean, default: false }
 });
+
+// Create a Mongoose model from the schema
 const CPU = mongoose.model('CPU', cpuSchema);
 
-module.exports={CPU}
+module.exports = CPU;
