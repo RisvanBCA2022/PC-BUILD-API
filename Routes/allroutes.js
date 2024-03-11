@@ -5,6 +5,7 @@ const gpuControler = require('../controllers/gpuController')
 const ramController = require('../controllers/ramController')
 const internalStorageController = require('../controllers/internalStorageController')
 const motherboardController=require('../controllers/motherboardcontroller')
+const psucontroller=require('../controllers/psuController')
 
 router.get('/cpu', cpuController.getAllCPUs);
 router.get('/gpus',gpuControler.getAllGPUs );
@@ -16,6 +17,8 @@ router.get('/motherboard',motherboardController.getAllMotherboards)
 router.post('/motherboards',motherboardController.insertManyMotherboards)
 router.post('/rams',ramController.insertManyRAM)
 router.post('/addinternalstorage',internalStorageController.insertManyStorage)
+router.post('/psus',psucontroller.insertManyPowerSupplies)
+router.get('/getpsu',psucontroller.getAllPowerSupplies)
 
 
 
